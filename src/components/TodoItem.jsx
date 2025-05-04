@@ -104,28 +104,29 @@ function TodoItem({ todo, toggleComplete, deleteTodo, updateTodo }) {
               flexGrow: 1,
               cursor: 'pointer',
               textDecoration: todo.completed ? 'line-through' : 'none',
-              display: 'inline-block',
             }}
             onClick={() => toggleComplete(todo.id)}
           >
             {todo.text}
+            {reminderDate && (
+              <small
+                style={{ display: 'block', color: '#666', fontSize: '0.8em' }}
+              >
+                Reminder: {reminderDate}
+              </small>
+            )}
           </span>
-          {reminderDate && (
-            <small
-              style={{
-                display: 'block',
-                color: '#666',
-                fontSize: '0.8em',
-                marginLeft: '10px',
-                textDecoration: 'none',
-              }}
-            >
-              Reminder: {reminderDate}
-            </small>
-          )}
           <button
             onClick={() => setIsEditing(true)}
-            style={{ marginLeft: '10px' }}
+            style={{
+              marginLeft: '10px',
+              backgroundColor: 'green',
+              color: 'white',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer',
+            }}
           >
             Edit
           </button>
